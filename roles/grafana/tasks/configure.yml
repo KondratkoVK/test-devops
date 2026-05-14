@@ -9,6 +9,6 @@
     dest: "{{ grafana_dir }}/docker-compose.yml"
 
 - name: Start Grafana
-  command: docker compose up -d
+  command: docker-compose up -d
   args:
     chdir: "{{ grafana_dir }}"
