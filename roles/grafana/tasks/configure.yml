@@ -8,6 +8,14 @@
     src: docker-compose.yml.j2
     dest: "{{ grafana_dir }}/docker-compose.yml"
 
+- name: Set permissions for Grafana data directory
+  file:
+    path: "{{ grafana_dir }}/data"
+    state: directory
+    owner: "472"
+    group: "472"
+    recurse: yes
+
 - name: Start Grafana
   command: docker-compose up -d
   args:
