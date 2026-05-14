@@ -39,7 +39,7 @@ test-devops/
 │           ├── grafana.ini.j2
 │           └── docker-compose.yml.j2
 └── playbook.yml
-
+```
 ## Требования
 
 На целевой машине должны быть установлены:
