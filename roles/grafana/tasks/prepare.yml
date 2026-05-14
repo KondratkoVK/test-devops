@@ -1,0 +1,23 @@
+- name: Install Docker
+  apt:
+    name:
+      - docker.io
+      - docker-compose-plugin
+    state: present
+    update_cache: yes
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Create directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - "{{ grafana_dir }}"
+    - "{{ grafana_dir }}/config"
+    - "{{ grafana_dir }}/data"

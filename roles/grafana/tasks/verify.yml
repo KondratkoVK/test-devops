@@ -1,0 +1,8 @@
+- name: Wait for Grafana
+  uri:
+    url: "http://localhost:{{ http_port }}"
+    status_code: 200
+  register: grafana_check
+  retries: 10
+  delay: 5
+  until: grafana_check.status == 200
